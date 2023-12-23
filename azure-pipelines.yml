@@ -4,17 +4,14 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
-steps:
-- task: UseDotNet@2
+- task: S3Upload@1
   inputs:
-    packageType: 'sdk'
-    version: '3.1.x'
-
-- task: AWSCLI@2
-  inputs:
-    awsCommand: 's3'
-    subCommand: 'cp'
-    arguments: '$(System.DefaultWorkingDirectory)/path/to/your/files/* s3://your-s3-bucket-name/'
-  env:
-    AWS_ACCESS_KEY_ID: $(AWS_ACCESS_KEY_ID)
-    AWS_SECRET_ACCESS_KEY: $(AWS_SECRET_ACCESS_KEY)
+    awsCredentials: 'logixos-task1-connection'
+    regionName: 'us-west-1'
+    bucketName: 'logixos-task'
+    globExpressions: '**'
+    filesAcl: 'public-read'
+    keyManagement: 'awsManaged'
+    encryptionAlgorithm: 'AES256'
+    logRequest: true
+    logResponse: true
