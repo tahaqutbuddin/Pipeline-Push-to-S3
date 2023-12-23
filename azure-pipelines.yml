@@ -1,6 +1,9 @@
 trigger:
 - main  # Adjust this to match your desired trigger pattern
 
+pool:
+  name: Self-Hosted-Agent
+
 steps:
 - task: S3Upload@1
   inputs:
