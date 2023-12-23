@@ -4,6 +4,7 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
+steps:
 - task: S3Upload@1
   inputs:
     awsCredentials: 'logixos-task1-connection'
