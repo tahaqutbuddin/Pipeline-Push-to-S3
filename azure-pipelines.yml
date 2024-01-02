@@ -1,6 +1,7 @@
 trigger:
 - main  # Adjust this to match your desired trigger pattern
 
+
 steps:
 - task: S3Upload@1
   inputs:
