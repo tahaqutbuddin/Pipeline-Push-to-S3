@@ -1,9 +1,6 @@
 trigger:
 - main  # Adjust this to match your desired trigger pattern
 
-pool:
-  vmImage: 'ubuntu-latest'
-
 steps:
 - task: S3Upload@1
   inputs:
